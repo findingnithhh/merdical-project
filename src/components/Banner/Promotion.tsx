@@ -5,7 +5,7 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 const Promotion = () => {
   return (
     <>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 ">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
         <div className="rounded-lg w-full h-[584px] relative">
           <Image
             src="/promote/sale.svg"
