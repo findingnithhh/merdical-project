@@ -89,13 +89,15 @@ const MainNavBar = () => {
         <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
           {DrawerList}
         </Drawer>
-        <Image
-          src="/logo.svg"
-          alt="logo"
-          width={40}
-          height={40}
-          className="md:w-[40px] md:h-[40px]"
-        />
+        <Link href='/'>
+          <Image
+            src="/logo.svg"
+            alt="logo"
+            width={40}
+            height={40}
+            className="md:w-[40px] md:h-[40px]"
+          />
+        </Link>
       </div>
       {/* search */}
       <div className="hidden md:flex items-center border rounded-md ">
