@@ -16,9 +16,10 @@ const MainNavBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const toggleDrawer = (newOpen: boolean | ((prevState: boolean) => boolean)) => () => {
-    setDrawerOpen(newOpen);
-  };
+  const toggleDrawer =
+    (newOpen: boolean | ((prevState: boolean) => boolean)) => () => {
+      setDrawerOpen(newOpen);
+    };
 
   const handleSearchOpen = () => setSearchOpen(true);
   const handleSearchClose = () => setSearchOpen(false);
@@ -89,7 +90,7 @@ const MainNavBar = () => {
         <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
           {DrawerList}
         </Drawer>
-        <Link href='/'>
+        <Link href="/">
           <Image
             src="/logo.svg"
             alt="logo"
@@ -107,7 +108,7 @@ const MainNavBar = () => {
           </span>
         </div>
         <input
-          type="input"
+          type="text"
           placeholder="Search"
           className="w-[355px] h-[45px] outline-none rounded-r-md pl-2 py-[12px] px-[18px]"
         />
@@ -123,7 +124,7 @@ const MainNavBar = () => {
             className="text-[#1A1A1A] w-5 h-5 block md:hidden cursor-pointer"
           />
           <Modal
-            className="flex justify-center items-center text-xl "
+            className="flex justify-center items-center text-xl  bg-white"
             open={searchOpen}
             onClose={handleSearchClose}
             aria-labelledby="modal-modal-title"
@@ -133,7 +134,7 @@ const MainNavBar = () => {
               <input
                 type="input"
                 placeholder="Search"
-                className="w-full h-10 outline-none bg-transparent px-3 text-white border"
+                className="w-full h-10 outline-none bg-white px-3 border"
               />
               <button
                 onClick={handleSearchClose}
