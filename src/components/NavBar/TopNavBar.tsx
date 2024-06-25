@@ -4,7 +4,7 @@ import { IoLocationOutline } from "react-icons/io5";
 const TopNavBar = () => {
   return (
     <>
-      <div className="w-full md:container h-[44px] flex items-center justify-between mx-auto">
+      <div className="hidden w-full md:container h-[44px] md:flex items-center justify-between mx-auto">
         {/* top navbar left */}
         <div className="flex justify-center items-center text-[#666666] gap-[8px]">
           <IoLocationOutline />

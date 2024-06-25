@@ -24,7 +24,7 @@ const ButtonNavbar = () => {
 
   return (
     <>
-      <div className="w-full bg-[#333333]">
+      <div className="hidden md:block w-full bg-[#333333]">
         <nav className="container bg-[#333333] h-[60px] mx-auto flex items-center justify-between">
           <div className="flex">
             {menuItems.map((item) => (
