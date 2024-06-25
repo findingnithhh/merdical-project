@@ -108,9 +108,9 @@ const MainNavBar = () => {
           </span>
         </div>
         <input
-          type="text"
+          type="input"
           placeholder="Search"
-          className="w-[355px] h-[45px] outline-none rounded-r-md pl-2 py-[12px] px-[18px]"
+          className="w-[355px] h-[45px] outline-none border-none focus:bg-none pl-2 py-[12px] px-[18px]"
         />
         <button className="w-[96px] h-[45px] bg-[#008001] text-white rounded-r-md">
           Search
