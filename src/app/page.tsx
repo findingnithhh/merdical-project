@@ -7,17 +7,30 @@ import Promotion from "@/components/Banner/Promotion";
 import DailyBlogCard from "@/components/Card/DailyBlogCard";
 import CampaniesLogo from "@/components/Card/CampaniesLogo";
 
-export default function Home() {
+async function getData() {
+  const response = await fetch("http://localhost:8000/products", {
+    cache: "no-store", // Use 'no-store' to always fetch fresh data (or use 'force-cache' for static data)
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  const data = await response.json();
+  return data;
+}
+
+export default async function Home() {
+  const data = await getData();  
+  // console.log('my data : ', data);
+  
   return (
     <>
       <Banner />
       <BenefitCardLists />
       <CategoryCard />
-      <PopularProductCard />
+      <PopularProductCard data={data} />
       <Promotion />
       <DailyBlogCard />
       <CampaniesLogo />
-      {/* <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis necessitatibus consequatur non quaerat consectetur perferendis architecto, est placeat inventore vitae nulla, repudiandae, aspernatur quam ipsam delectus officiis nisi atque nobis?</div> */}
     </>
   );
 }
