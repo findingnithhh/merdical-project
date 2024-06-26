@@ -27,7 +27,7 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
         {data.map((product) => (
           <div
             key={product.id}
-            className="w-full h-[450px] md:h-[526px] border p-1 md:p-[16px] hover:border-primary cursor-pointer"
+            className="w-full h-[420px] md:h-[526px] border p-1 md:p-[16px] hover:border-primary cursor-pointer"
           >
             <div className="h-[290px] md:h-[369.3px] relative flex justify-center items-center">
               <Image

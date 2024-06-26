@@ -32,7 +32,7 @@ const ButtonNavbar = () => {
                 <Link href={item.link}>
                   <li
                     className={`py-[10px] px-[16px] font-medium text-white flex items-center ${
-                      isActive(item.link) ? "bg-[#008001]" : ""
+                      isActive(item.link) ? "bg-primary" : ""
                     }`}
                   >
                     {item.text}
