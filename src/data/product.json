@@ -80,5 +80,37 @@
       "discount": "20",
       "imageUrl": "https://cdn.britannica.com/29/123229-050-4EE13335/stethoscopes-rubber-tubing-sounds-patient-ears-physician.jpg"
     }
+  ],
+  "categories" : [
+    {
+      "id": 1,
+      "categoryName": "Syringe and needles",
+      "imageUrl": "/popular-categories/syringe.svg"
+    },
+    {
+      "id": 2,
+      "categoryName": "Suture",
+      "imageUrl": "/popular-categories/suture.svg"
+    },
+    {
+      "id": 3,
+      "categoryName": "Blood Bag",
+      "imageUrl": "/popular-categories/blood-bag.svg"
+    },
+    {
+      "id": 4,
+      "categoryName": "Blood Lancet",
+      "imageUrl": "/popular-categories/blood-lancet.svg"
+    },
+    {
+      "id": 5,
+      "categoryName": "Urine Bag",
+      "imageUrl": "/popular-categories/urine-bag.svg"
+    },
+    {
+      "id": 6,
+      "categoryName": "Medical Tube",
+      "imageUrl": "/popular-categories/medical-tube.svg"
+    }
   ]
 }
