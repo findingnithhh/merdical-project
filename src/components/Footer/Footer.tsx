@@ -15,9 +15,9 @@ const privacies = [
 const Footer = () => {
   return (
     <>
-      <div className="container mx-auto">
+      <div className="w-full mx-auto bg-[#F7F7F7] ">
         {/* top */}
-        <div className="flex justify-between items-center h-[88px] px-3 md:px-0">
+        <div className="container mx-auto flex justify-between items-center h-[88px] px-3 md:px-0 mt-5">
           <div className="flex gap-[16px] text-xs md:text-base">
             {privacies.map((privacy, index) => (
               <Link key={index} href={privacy.link}>
@@ -162,10 +162,10 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          <div className="border-t border-secondary mt-4 md:mt-3"></div>
-          <p className="text-center mt-4 md:mt-5 text-[#808080] text-xs md:text-base">
-            Developed by Digital Solution
-          </p>
+            <div className="border-t border-secondary mt-4 md:mt-3"></div>
+            <p className="text-center mt-4 md:mt-5 text-[#808080] text-xs md:text-base">
+              Developed by Digital Solution
+            </p>
           </div>
         </div>
       </div>
