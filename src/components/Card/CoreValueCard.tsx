@@ -31,36 +31,39 @@ const CoreValueCard = () => {
 
   return (
     <>
-      <div className="w-full md:container mx-auto my-10">
-        <div className="text-center flex justify-center flex-col">
-          <h1 className="text-2xl md:text-[40px] font-extrabold my-5">
-            Core Values
-          </h1>
-          <p className="w-full md:w-5/12 mx-auto text-[#6B7280] text-sm md:text-[16px] lg:text-[18px] mt-5">
-            Here at Flowbite, we focus on markets where technology, innovation,
-            and capital can unlock long-term value and drive economic growth.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 mt-10">
-          {coreValues.map((value, index) => (
-            <div key={index} className="w-full p-[24px] rounded-md shadow-md">
-              <Image
-                src={value.icon}
-                alt={value.title}
-                width={30}
-                height={30}
-                className="mb-5"
-              />
-              <div className="flex flex-col gap-2">
-                <h1 className="text-base md:text-[18px] text-[#111928] font-semibold">
-                  {value.title}
-                </h1>
-                <p className="text-sm md:text-base text-[#6B7280]">
-                  {value.description}
-                </p>
+      <div className="bg-[#F9FAFB]">
+        <div className="w-full md:container mx-auto mt-10">
+          <div className="text-center flex justify-center flex-col">
+            <h1 className="text-2xl md:text-[40px] font-extrabold  mt-10">
+              Core Values
+            </h1>
+            <p className="w-full md:w-5/12 mx-auto text-[#6B7280] text-sm md:text-[16px] lg:text-[18px] mt-5">
+              Here at Flowbite, we focus on markets where technology,
+              innovation, and capital can unlock long-term value and drive
+              economic growth.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 mt-10">
+            {coreValues.map((value, index) => (
+              <div key={index} className="w-full p-[24px] rounded-md shadow-md mb-20">
+                <Image
+                  src={value.icon}
+                  alt={value.title}
+                  width={30}
+                  height={30}
+                  className="mb-5"
+                />
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-base md:text-[18px] text-[#111928] font-semibold">
+                    {value.title}
+                  </h1>
+                  <p className="text-sm md:text-base text-[#6B7280]">
+                    {value.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>
