@@ -28,6 +28,7 @@ const Blog = async ({ context }: any) => {
   const blogData = await getBlogData();
   // console.log('blogData :', blogData);
 
+  const TOTAL_PAGES = 21;
   return (
     <>
       <div className="w-full lg:container mx-auto h-full mb-10 px-2 lg:px-0">
@@ -55,7 +56,8 @@ const Blog = async ({ context }: any) => {
           </div>
           <div>
             <p className="text-[#666666] text-sm md:text-base">
-              <span className="text-[#1A1A1A] font-medium">52</span> Results Found
+              <span className="text-[#1A1A1A] font-medium">52</span> Results
+              Found
             </p>
           </div>
         </div>
@@ -69,7 +71,7 @@ const Blog = async ({ context }: any) => {
               {/* <Stack spacing={2}>
                 <Pagination count={21} />
               </Stack> */}
-              <Pagination />
+              <Pagination totalPages={TOTAL_PAGES} />
             </div>
           </div>
         </div>

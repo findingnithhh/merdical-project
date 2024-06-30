@@ -170,7 +170,7 @@ const MainNavBar = () => {
         <div className="flex items-center gap-3 text-sm">
           <div className="relative">
             <PiHandbag className="text-[#1A1A1A] w-[27.67px] h-[23.8px]" />
-            <p className="bg-primary px-1 border rounded-full absolute -top-1 left-3.5 text-white text-xs">
+            <p className="bg-primary px-1.5 border rounded-full absolute -top-1 left-3.5 text-white text-xs">
               {count > 9 ? "9+" : count}
             </p>
           </div>
