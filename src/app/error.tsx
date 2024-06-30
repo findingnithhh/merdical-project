@@ -1,8 +1,10 @@
 "use client";
 import { useEffect } from "react";
 import Image from "next/image";
+
 export default function Error({
   error,
+  reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
@@ -13,8 +15,8 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className=" p-8">
         <div className="flex justify-center items-center mb-10">
           <Image src="/error.svg" alt="error" width={300} height={300} />
         </div>
@@ -22,7 +24,7 @@ export default function Error({
           Oops, looks like something went wrong!
         </h2>
         <p className="text-gray-600 mb-4">
-          We're sorry, but something unexpected happened. Please try again
+          We&apos;re sorry, but something unexpected happened. Please try again
           later.
         </p>
       </div>

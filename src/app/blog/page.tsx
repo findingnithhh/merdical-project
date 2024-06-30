@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CiSliderHorizontal } from "react-icons/ci";
 import SideBar from "@/components/SideBar/SideBar";
 import BlogCard from "@/components/Card/BlogCard";
-import Pagination from "@mui/material/Pagination";
+import Pagination from "@/components/Pagination/Pagaination";
 import Stack from "@mui/material/Stack";
 
 export const metadata: Metadata = {
@@ -24,10 +24,10 @@ async function getBlogData() {
   return data;
 }
 
-const Blog = async () => {
+const Blog = async ({ context }: any) => {
   const blogData = await getBlogData();
-  console.log('blogData :', blogData);
-  
+  // console.log('blogData :', blogData);
+
   return (
     <>
       <div className="w-full lg:container mx-auto h-full mb-10 px-4 lg:px-0">
@@ -66,9 +66,10 @@ const Blog = async () => {
           <div className="col-span-12 lg:col-span-8">
             <BlogCard posts={blogData} />
             <div className="flex justify-center items-center mt-10">
-              <Stack spacing={2}>
+              {/* <Stack spacing={2}>
                 <Pagination count={21} />
-              </Stack>
+              </Stack> */}
+              <Pagination />
             </div>
           </div>
         </div>
