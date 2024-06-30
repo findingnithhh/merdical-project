@@ -1,7 +1,4 @@
-// components/CustomArrow.js
-
 import { MouseEventHandler } from "react";
-// import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { IoArrowForwardOutline, IoArrowBack } from "react-icons/io5";
 
 export function CustomLeftArrow(props: {

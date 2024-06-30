@@ -21,7 +21,7 @@ const Categories: React.FC<Props> = ({ data }) => {
             <IoArrowForward />
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 cursor-pointer">
           {data.map((catagory, index) => (
             <div key={index} className="hover:text-primary w-full h-[200px] md:h-[262px] flex flex-col justify-center items-center gap-4 border rounded-md hover:border-2 hover:border-primary hover:shadow-sm">
               <Image

@@ -1,5 +1,6 @@
+'use client'
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
 import { PiHandbag } from "react-icons/pi";
 import { TiStarFullOutline, TiStarOutline } from "react-icons/ti";
@@ -10,6 +11,23 @@ interface Props {
 }
 
 const PopularProductCard: React.FC<Props> = ({ data }) => {
+  const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
+
+  const handleBagClick = (productId: number) => {
+    setSelectedProductIds((prevSelectedIds) => {
+      if (prevSelectedIds.includes(productId)) {
+        // Remove product id if already selected
+        return prevSelectedIds.filter((id) => id !== productId);
+      } else {
+        // Add product id if not selected
+        return [...prevSelectedIds, productId];
+      }
+    });
+  };
+
+  const isSelected = (productId: number) =>
+    selectedProductIds.includes(productId);
+
   return (
     <div className="container mx-auto p-2 md:p-0">
       <div className="flex justify-between items-center my-[32px]">
@@ -42,6 +60,9 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
                   Sale {product.discount}%
                 </p>
               )}
+              {isSelected(product.id) && (
+                <div className="absolute inset-0 rounded-lg"></div>
+              )}
             </div>
             <div className="h-[149.7px] flex justify-between items-center">
               <div>
@@ -71,8 +92,15 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
                   ))}
                 </div>
               </div>
-              <div className="py-2.5 px-2 rounded-full hover:bg-primary">
-                <PiHandbag className="text-[#1A1A1A] hover:text-white w-[28px] h-[22px]" />
+              <div
+                className={`py-2.5 px-2 rounded-full ${
+                  isSelected(product.id)
+                    ? "bg-primary text-white"
+                    : "hover:bg-primary text-[#1A1A1A] hover:text-white"
+                }`}
+                onClick={() => handleBagClick(product.id)}
+              >
+                <PiHandbag className="w-[28px] h-[22px]" />
               </div>
             </div>
           </div>

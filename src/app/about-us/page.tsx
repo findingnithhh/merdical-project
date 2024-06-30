@@ -1,10 +1,16 @@
 import React from "react";
 import Image from "next/image";
+import { Metadata } from "next";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 import CoreValueCard from "@/components/Card/CoreValueCard";
 import TeamCard from "@/components/Card/TeamCard";
+
+export const metadata: Metadata = {
+  title: "About Us",
+}
+
 const AboutUS = () => {
   return (
     <>

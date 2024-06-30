@@ -1,51 +1,65 @@
-// // Countdown.js
-// 'use client'
-// import React, { useState, useEffect } from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 
-// const Countdown = ({ targetDate }: any) => {
-//   const calculateTimeLeft = () => {
-//     const difference = +new Date(targetDate) - +new Date();
-//     let timeLeft = {};
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
 
-//     if (difference > 0) {
-//       timeLeft = {
-//         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-//         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-//         minutes: Math.floor((difference / 1000 / 60) % 60),
-//         seconds: Math.floor((difference / 1000) % 60),
-//       };
-//     }
+const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
+  const calculateTimeLeft = () => {
+    const difference = +new Date(targetDate) - +new Date();
+    let timeLeft: TimeLeft = {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
 
-//     return timeLeft;
-//   };
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
 
-//   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    return timeLeft;
+  };
 
-//   useEffect(() => {
-//     const timerId = setInterval(() => {
-//       setTimeLeft(calculateTimeLeft());
-//     }, 1000);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
-//     return () => clearInterval(timerId);
-//   }, [targetDate]);
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
 
-//   return (
-//     <div>
-//       <h1>Countdown Timer</h1>
-//       <div>
-//         {Object.keys(timeLeft).length > 0 ? (
-//           <>
-//             <span>{timeLeft.days} days </span>
-//             <span>{timeLeft.hours} hours </span>
-//             <span>{timeLeft.minutes} minutes </span>
-//             <span>{timeLeft.seconds} seconds </span>
-//           </>
-//         ) : (
-//           <span>Time's up!</span>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
+    return () => clearInterval(timerId);
+  }, [targetDate]);
 
-// export default Countdown;
+  return (
+    <div>
+      <h1>Countdown Timer</h1>
+      <div>
+        {timeLeft.days > 0 ||
+        timeLeft.hours > 0 ||
+        timeLeft.minutes > 0 ||
+        timeLeft.seconds > 0 ? (
+          <>
+            {timeLeft.days > 0 && <span>{timeLeft.days} days </span>}
+            {timeLeft.hours > 0 && <span>{timeLeft.hours} hours </span>}
+            {timeLeft.minutes > 0 && <span>{timeLeft.minutes} minutes </span>}
+            {timeLeft.seconds >= 0 && <span>{timeLeft.seconds} seconds </span>}
+          </>
+        ) : (
+          <span>Time's up!</span>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Countdown;

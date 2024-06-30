@@ -150,7 +150,10 @@ const MainNavBar = () => {
         </div>
         <span className="border border-1 h-6 flex mx-2"></span>
         <div className="flex items-center gap-3 text-sm">
-          <PiHandbag className="text-[#1A1A1A] w-[27.67px] h-[23.8px]" />
+          <div className="relative">
+            <PiHandbag className="text-[#1A1A1A] w-[27.67px] h-[23.8px]" />
+            <p className="bg-primary px-1 border rounded-full absolute -top-1 left-3.5 text-white text-xs">2</p>
+          </div>
           <p className="hidden md:block text-[11px]">Shopping cart:</p>
           <span className="text-sm font-bold text-[#1A1A1A] pr-4">$0</span>
         </div>

@@ -1,4 +1,5 @@
 import Button from "@/components/Button/Button";
+import { Metadata } from "next";
 import React from "react";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
@@ -7,6 +8,10 @@ import SideBar from "@/components/SideBar/SideBar";
 import BlogCard from "@/components/Card/BlogCard";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+};
 
 async function getBlogData() {
   const response = await fetch("http://localhost:8000/blogs", {

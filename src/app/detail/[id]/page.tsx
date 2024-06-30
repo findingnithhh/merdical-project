@@ -5,6 +5,7 @@ import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import SideBar from "@/components/SideBar/SideBar";
 
+
 const Details = () => {
   const params = useParams();
   console.log("id", params);

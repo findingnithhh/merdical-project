@@ -1,7 +1,12 @@
 import ContactForm from "@/components/Form/ContactForm";
+import { Metadata } from "next";
 import React from "react";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+};
 
 const AboutUs = () => {
   return (
