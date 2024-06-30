@@ -26,7 +26,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ posts }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {posts.map((post) => (
-        <Link key={post.id} href={`/detail/${post.id}`}>
+        <Link key={post.id} href={`/blog/${post.id}`}>
           <div className="group border rounded-lg shadow-xl hover:shadow-2xl transition-shadow">
             <div className="relative">
               <Image

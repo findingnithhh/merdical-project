@@ -26,7 +26,8 @@ async function getBlogData() {
 
 const Blog = async () => {
   const blogData = await getBlogData();
-
+  console.log('blogData :', blogData);
+  
   return (
     <>
       <div className="w-full lg:container mx-auto h-full mb-10 px-4 lg:px-0">
@@ -63,7 +64,7 @@ const Blog = async () => {
             <SideBar />
           </div>
           <div className="col-span-12 lg:col-span-8">
-              <BlogCard posts={blogData} />
+            <BlogCard posts={blogData} />
             <div className="flex justify-center items-center mt-10">
               <Stack spacing={2}>
                 <Pagination count={21} />
