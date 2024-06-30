@@ -30,23 +30,23 @@ const Blog = async ({ context }: any) => {
 
   return (
     <>
-      <div className="w-full lg:container mx-auto h-full mb-10 px-4 lg:px-0">
+      <div className="w-full lg:container mx-auto h-full mb-10 px-2 lg:px-0">
         <div className="flex flex-wrap items-center py-6">
           <GoHome className="w-6 h-6 text-gray-500" />
           <IoIosArrowForward className="w-4 h-4 text-gray-500 ml-1 md:ml-2" />
           <p className="text-primary ml-2">Blog</p>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+        <div className="flex justify-between items-center ">
           <div>
-            <Button className="flex items-center justify-center rounded-full w-[152px] h-[52px] ">
+            <Button className="flex items-center justify-center rounded-full w-[80px] h-[30px] md:w-[152px] md:h-[52px] text-sm md:text-base">
               Filter <CiSliderHorizontal className="ml-2" />
             </Button>
           </div>
           <div className="flex items-center space-x-4">
-            <label htmlFor="sort" className="mr-2">
+            <label htmlFor="sort" className="mr-1 md:mr-2">
               Sort by:
             </label>
-            <select className="border border-[#D1D5DB] rounded-[8px] py-[10px] px-[18px] text-[#6B7280] focus:ring-green-500 focus:border-green-500">
+            <select className="border border-[#D1D5DB] rounded-[8px] py-[5px] md:py-[8px] md:px-[18px] text-[#6B7280] focus:ring-green-500 focus:border-green-500">
               <option defaultValue="latest">Latest</option>
               <option value="1 week">1 week ago</option>
               <option value="2 weeks">2 weeks ago</option>
@@ -54,8 +54,8 @@ const Blog = async ({ context }: any) => {
             </select>
           </div>
           <div>
-            <p>
-              <span>52</span> Results Found
+            <p className="text-[#666666] text-sm md:text-base">
+              <span className="text-[#1A1A1A] font-medium">52</span> Results Found
             </p>
           </div>
         </div>
