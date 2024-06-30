@@ -5,6 +5,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CiSliderHorizontal } from "react-icons/ci";
 import SideBar from "@/components/SideBar/SideBar";
 import BlogCard from "@/components/Card/BlogCard";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 async function getBlogData() {
   const response = await fetch("http://localhost:8000/blogs", {
@@ -19,30 +21,27 @@ async function getBlogData() {
 
 const Blog = async () => {
   const blogData = await getBlogData();
-  console.log('blog data : ', blogData);
-  
+
   return (
     <>
-      <div className="w-full lg:container mx-auto h-full mb-10">
-        <div className="flex items-center py-6">
+      <div className="w-full lg:container mx-auto h-full mb-10 px-4 lg:px-0">
+        <div className="flex flex-wrap items-center py-6">
           <GoHome className="w-6 h-6 text-gray-500" />
           <IoIosArrowForward className="w-4 h-4 text-gray-500 ml-1 md:ml-2" />
           <p className="text-primary ml-2">Blog</p>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
           <div>
-            <Button className="flex items-center justify-center rounded-full w-[152px] h-[52px]">
+            <Button className="flex items-center justify-center rounded-full w-[152px] h-[52px] ">
               Filter <CiSliderHorizontal className="ml-2" />
             </Button>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center space-x-4">
             <label htmlFor="sort" className="mr-2">
               Sort by:
             </label>
-            <select className="border border-[#D1D5DB] rounded-[8px] mt-3 py-[10px] px-[18px] text-[#6B7280] focus:ring-green-500 focus:border-green-500">
-              <option value="latest" disabled selected>
-                Latest
-              </option>
+            <select className="border border-[#D1D5DB] rounded-[8px] py-[10px] px-[18px] text-[#6B7280] focus:ring-green-500 focus:border-green-500">
+              <option defaultValue="latest">Latest</option>
               <option value="1 week">1 week ago</option>
               <option value="2 weeks">2 weeks ago</option>
               <option value="1 month">1 month ago</option>
@@ -54,12 +53,17 @@ const Blog = async () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-10 mt-10">
-          <div className="col-span-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-10">
+          <div className="col-span-12 lg:col-span-4">
             <SideBar />
           </div>
-          <div className="col-span-8">
-            <BlogCard posts={blogData} />
+          <div className="col-span-12 lg:col-span-8">
+              <BlogCard posts={blogData} />
+            <div className="flex justify-center items-center mt-10">
+              <Stack spacing={2}>
+                <Pagination count={21} />
+              </Stack>
+            </div>
           </div>
         </div>
       </div>

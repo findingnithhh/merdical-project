@@ -116,7 +116,7 @@
   "blogs": [
     {
       "id": 1,
-      "imageSrc": "/daily-blog/blog1.svg",
+      "imageSrc": "/daily-blog/blog4.svg",
       "date": "18",
       "month": "NOV",
       "category": "Illness",
@@ -127,7 +127,7 @@
     },
     {
       "id": 2,
-      "imageSrc": "/daily-blog/blog2.svg",
+      "imageSrc": "/daily-blog/blog5.svg",
       "date": "25",
       "month": "DEC",
       "category": "Healthcare",
@@ -138,7 +138,7 @@
     },
     {
       "id": 3,
-      "imageSrc": "/daily-blog/blog3.svg",
+      "imageSrc": "/daily-blog/blog6.svg",
       "date": "12",
       "month": "SEP",
       "category": "Research",
@@ -149,7 +149,7 @@
     },
     {
       "id": 4,
-      "imageSrc": "/daily-blog/blog4.svg",
+      "imageSrc": "/daily-blog/blog7.svg",
       "date": "03",
       "month": "JUL",
       "category": "Mental Health",
@@ -160,7 +160,7 @@
     },
     {
       "id": 5,
-      "imageSrc": "/daily-blog/blog5.svg",
+      "imageSrc": "/daily-blog/blog8.svg",
       "date": "08",
       "month": "APR",
       "category": "Public Health",
@@ -171,7 +171,7 @@
     },
     {
       "id": 6,
-      "imageSrc": "/daily-blog/blog6.svg",
+      "imageSrc": "/daily-blog/blog9.svg",
       "date": "21",
       "month": "MAY",
       "category": "Health Tech",
@@ -182,7 +182,7 @@
     },
     {
       "id": 7,
-      "imageSrc": "/daily-blog/blog7.svg",
+      "imageSrc": "/daily-blog/blog10.svg",
       "date": "30",
       "month": "JUN",
       "category": "Epidemiology",
@@ -193,7 +193,7 @@
     },
     {
       "id": 8,
-      "imageSrc": "/daily-blog/blog8.svg",
+      "imageSrc": "/daily-blog/blog11.svg",
       "date": "14",
       "month": "AUG",
       "category": "Health Policy",

@@ -29,17 +29,17 @@ const tags = [
 
 const recentlyAddedItems = [
   {
-    imgSrc: "blog/recently1.svg",
+    imgSrc: "/blog/recently1.svg",
     title: "Curabitur porttitor orci eget nequ accumsan.",
     date: "Apr 25, 2021",
   },
   {
-    imgSrc: "blog/recently2.svg",
+    imgSrc: "/blog/recently2.svg",
     title: "Donec mattis arcu faucibus suscipit viverra.",
     date: "Apr 25, 2021",
   },
   {
-    imgSrc: "blog/recently3.svg",
+    imgSrc: "/blog/recently3.svg",
     title: "Quisque posuere tempus rutrum. Integer velit ex.",
     date: "Apr 25, 2021",
   },
@@ -122,8 +122,8 @@ const SideBar = () => {
               key={i}
               src={`/blog/gallery${i + 1}.svg`}
               alt={`gallery${i + 1}`}
-              width={50}
-              height={50}
+              width={100}
+              height={100}
               className="md:w-[103px] md:h-[103px]"
             />
           ))}
