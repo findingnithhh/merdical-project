@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
@@ -12,21 +12,52 @@ interface Props {
 
 const PopularProductCard: React.FC<Props> = ({ data }) => {
   const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
+  const [cartedProductIds, setCartedProductIds] = useState<number[]>([]);
 
-  const handleBagClick = (productId: number) => {
-    setSelectedProductIds((prevSelectedIds) => {
-      if (prevSelectedIds.includes(productId)) {
-        // Remove product id if already selected
-        return prevSelectedIds.filter((id) => id !== productId);
-      } else {
-        // Add product id if not selected
-        return [...prevSelectedIds, productId];
-      }
-    });
+  const handleBagClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    productId: number
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    setCartedProductIds((prevIds) =>
+      prevIds.includes(productId)
+        ? prevIds.filter((id) => id !== productId)
+        : [...prevIds, productId]
+    );
+
+    const isCarted = cartedProductIds.includes(productId);
+
+    if (isCarted) {
+      // Decrement Cart
+      const totalCart = localStorage.getItem("numberOffCart") as string;
+      const result = parseInt(totalCart) - 1;
+
+      // Set New Total Count of Cart
+      localStorage.setItem("numberOffCart", result.toString());
+
+      // Notify Event Storage So That Listener could know total cart is changing
+      window.dispatchEvent(new Event("storage"));
+    } else {
+      // Increment Cart
+      const totalCart = localStorage.getItem("numberOffCart")
+        ? (localStorage.getItem("numberOffCart") as string)
+        : "0";
+      const result = parseInt(totalCart) + 1;
+
+      // Set New Total Count of Cart
+      localStorage.setItem("numberOffCart", result.toString());
+
+      // Notify Event Storage So That Listener could know total cart is changing
+      window.dispatchEvent(new Event("storage"));
+    }
   };
 
   const isSelected = (productId: number) =>
     selectedProductIds.includes(productId);
+
+  const isCarted = (productId: number) => cartedProductIds.includes(productId);
 
   return (
     <div className="container mx-auto p-2 md:p-0">
@@ -94,11 +125,11 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
               </div>
               <div
                 className={`py-2.5 px-2 rounded-full ${
-                  isSelected(product.id)
+                  isCarted(product.id)
                     ? "bg-primary text-white"
                     : "hover:bg-primary text-[#1A1A1A] hover:text-white"
                 }`}
-                onClick={() => handleBagClick(product.id)}
+                onClick={(e) => handleBagClick(e, product.id)}
               >
                 <PiHandbag className="w-[28px] h-[22px]" />
               </div>
