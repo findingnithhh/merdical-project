@@ -1,12 +1,11 @@
-'use client'
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
 
-const Pagination = ({ totalPages }: any) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
+const Pagination = ({ totalPages, currentPage, onPageChange }: any) => {
   const handlePageClick = (page: number) => {
-    setCurrentPage(page);
+    onPageChange(page);
   };
+
   const renderPageNumbers = () => {
     const pageNumbers = [];
     const maxPages = 5;
@@ -55,9 +54,7 @@ const Pagination = ({ totalPages }: any) => {
         <button
           key={totalPages}
           className={`px-3 py-1 border rounded-full ${
-            currentPage === totalPages
-              ? "bg-primary text-white"
-              : "text-black"
+            currentPage === totalPages ? "bg-primary text-white" : "text-black"
           }`}
           onClick={() => handlePageClick(totalPages)}
         >

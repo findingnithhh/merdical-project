@@ -1,17 +1,16 @@
+'use client'
 import Button from "@/components/Button/Button";
 import { Metadata } from "next";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSliderHorizontal } from "react-icons/ci";
 import SideBar from "@/components/SideBar/SideBar";
 import BlogCard from "@/components/Card/BlogCard";
 import Pagination from "@/components/Pagination/Pagaination";
-import Stack from "@mui/material/Stack";
 
-export const metadata: Metadata = {
-  title: "Blogs",
-};
+
+const ITEMS_PER_PAGE = 6;
 
 async function getBlogData() {
   const response = await fetch("http://localhost:8000/blogs", {
@@ -24,11 +23,29 @@ async function getBlogData() {
   return data;
 }
 
-const Blog = async ({ context }: any) => {
-  const blogData = await getBlogData();
-  // console.log('blogData :', blogData);
+const Blog = () => {
+  const [blogData, setBlogData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
-  const TOTAL_PAGES = 21;
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getBlogData();
+      setBlogData(data);
+      setTotalPages(Math.ceil(data.length / ITEMS_PER_PAGE));
+    };
+    fetchData();
+  }, []);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const currentBlogData = blogData.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   return (
     <>
       <div className="w-full lg:container mx-auto h-full mb-10 px-2 lg:px-0">
@@ -56,8 +73,10 @@ const Blog = async ({ context }: any) => {
           </div>
           <div>
             <p className="text-[#666666] text-sm md:text-base">
-              <span className="text-[#1A1A1A] font-medium">52</span> Results
-              Found
+              <span className="text-[#1A1A1A] font-medium">
+                {blogData.length}
+              </span>{" "}
+              Results Found
             </p>
           </div>
         </div>
@@ -66,12 +85,13 @@ const Blog = async ({ context }: any) => {
             <SideBar />
           </div>
           <div className="col-span-12 lg:col-span-8">
-            <BlogCard posts={blogData} />
+            <BlogCard posts={currentBlogData} />
             <div className="flex justify-center items-center mt-10">
-              {/* <Stack spacing={2}>
-                <Pagination count={21} />
-              </Stack> */}
-              <Pagination totalPages={TOTAL_PAGES} />
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+              />
             </div>
           </div>
         </div>

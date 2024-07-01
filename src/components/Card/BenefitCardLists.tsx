@@ -26,16 +26,21 @@ const benefits = [
 
 const BenefitCardLists = () => {
   return (
-    <div className="container mx-auto grid grid-cols-2 xl:grid-cols-4 gap-1 md:gap-4">
-      {benefits.map((benefit, index) => (
-        <BenefitCard
-          key={index}
-          icon={benefit.icon}
-          title={benefit.title}
-          description={benefit.description}
-        />
-      ))}
-    </div>
+    <>
+      <div className="container mx-auto">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-1 md:gap-4">
+          {benefits.map((benefit, index) => (
+            <BenefitCard
+              key={index}
+              icon={benefit.icon}
+              title={benefit.title}
+              description={benefit.description}
+            />
+          ))}
+        </div>
+        <hr />
+      </div>
+    </>
   );
 };
 

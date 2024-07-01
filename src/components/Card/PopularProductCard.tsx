@@ -5,6 +5,8 @@ import { IoArrowForward } from "react-icons/io5";
 import { PiHandbag } from "react-icons/pi";
 import { TiStarFullOutline, TiStarOutline } from "react-icons/ti";
 import { IProduct } from "@/types/Product";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
 
 interface Props {
   data: IProduct[];
@@ -13,6 +15,18 @@ interface Props {
 const PopularProductCard: React.FC<Props> = ({ data }) => {
   const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
   const [cartedProductIds, setCartedProductIds] = useState<number[]>([]);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+
+  const handleSnackbarClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackbarOpen(false);
+  };
 
   const handleBagClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -39,6 +53,9 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
 
       // Notify Event Storage So That Listener could know total cart is changing
       window.dispatchEvent(new Event("storage"));
+
+      // Set Snackbar message
+      setSnackbarMessage("Your item has been removed from cart successfully");
     } else {
       // Increment Cart
       const totalCart = localStorage.getItem("numberOffCart")
@@ -51,7 +68,13 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
 
       // Notify Event Storage So That Listener could know total cart is changing
       window.dispatchEvent(new Event("storage"));
+
+      // Set Snackbar message
+      setSnackbarMessage("Your item has been added to cart successfully.");
     }
+
+    // Show Snackbar
+    setSnackbarOpen(true);
   };
 
   const isSelected = (productId: number) =>
@@ -137,6 +160,27 @@ const PopularProductCard: React.FC<Props> = ({ data }) => {
           </div>
         ))}
       </div>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        message={snackbarMessage}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        ContentProps={{
+          className: "bg-primary",
+        }}
+        action={
+          <React.Fragment>
+            <IconButton
+              size="large"
+              aria-label="close"
+              color="inherit"
+              onClick={handleSnackbarClose}
+            >
+            </IconButton>
+          </React.Fragment>
+        }
+      />
     </div>
   );
 };
